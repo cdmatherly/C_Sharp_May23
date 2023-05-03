@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Hello! Add a pet to our project!</h1>
+
+<form action="addPet" method="POST">
+    <div>
+        <label for="">Name</label>
+        <input type="text" name="Name">
+    </div>
+    <div>
+        <label for="">Type</label>
+        <input type="text" name="Type">
+    </div>
+    <div>
+        <label for="">Color</label>
+        <input type="text" name="Color">
+    </div>
+    <div>
+        <label for="">Age</label>
+        <input type="number" name="Age">
+    </div>
+    <input type="submit" value="Submit">
+</form>
