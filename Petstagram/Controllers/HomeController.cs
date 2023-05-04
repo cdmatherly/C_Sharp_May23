@@ -26,15 +26,22 @@ public class HomeController : Controller
     }
 
     [HttpPost("/addPet")]
-    public IActionResult AddPet(string Name, string Type, int Age, string Color)
+    public IActionResult Create(Pet newPet)
     {
-        if(Type == "dolphin")
+        if(!ModelState.IsValid)
         {
-            ViewBag.SecretMessage = "You picked the secret pet type! Congrats!!!!";
-            return View("Result");
+            return View("Index");
         }
-        Console.WriteLine($"{Name} is a(n) {Age} year old {Type} with {Color} hair");
-        return Redirect("/result");
+
+        
+        Console.WriteLine("Name: " + newPet.Name);
+        Console.WriteLine("Type: " + newPet.Type);
+        Console.WriteLine("Age: " + newPet.Age);
+        Console.WriteLine("Color: " + newPet.Color);
+
+        // we're not redirecting here b/c we're not working with a DB yet, typically this would
+        // be a redirect
+        return View("ViewPet", newPet);
     }
 
     [HttpGet("/privacy")]

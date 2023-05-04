@@ -1,25 +1,41 @@
-﻿@{
+﻿@model Pet
+@{
     ViewData["Title"] = "Home Page";
 }
 
+<div class="container w-75 mx-auto">
+
 <h1>Hello! Add a pet to our project!</h1>
 
-<form action="addPet" method="POST">
-    <div>
-        <label for="">Name</label>
-        <input type="text" name="Name">
+<form asp-controller="Home" asp-action="Create" method="POST">
+    @* using the asp-for tags looks at the Model that we've designated
+    as our viewmodel (line 1) and based on the data types, will generate
+    the label and input for us *@
+    <div class="mb-3">
+      <label asp-for="Name"></label>
+      <span asp-validation-for="Name" class="text-danger font-weight-bold"></span>
+      <input class="form-control" asp-for="Name">
     </div>
-    <div>
-        <label for="">Type</label>
-        <input type="text" name="Type">
+
+    <div class="mb-3">
+      <label asp-for="Type"></label>
+      <span asp-validation-for="Type" class="text-danger font-weight-bold"></span>
+      <input class="form-control" asp-for="Type">
     </div>
-    <div>
-        <label for="">Color</label>
-        <input type="text" name="Color">
+
+    <div class="mb-3">
+      <label asp-for="Age"></label>
+      <span asp-validation-for="Age" class="text-danger font-weight-bold"></span>
+      <input class="form-control" asp-for="Age">
     </div>
-    <div>
-        <label for="">Age</label>
-        <input type="number" name="Age">
+
+    <div class="mb-3">
+      <label asp-for="Color"></label>
+      <span asp-validation-for="Color" class="text-danger font-weight-bold"></span>
+      <input class="form-control" asp-for="Color">
     </div>
+
     <input type="submit" value="Submit">
 </form>
+
+</div>
