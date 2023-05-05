@@ -26,6 +26,16 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+                        @{
+                            if(Context.Session.GetString("PetName") != null)
+                            {
+                                <li class="nav-item">
+                                    <form asp-controller="Home" asp-action="ClearSession" method="POST">
+                                        <input type="submit" value="Clear Session">
+                                    </form>                        
+                                </li>
+                            }
+                        }
                     </ul>
                 </div>
             </div>

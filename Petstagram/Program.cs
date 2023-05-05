@@ -2,6 +2,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+// Services to be able to use Session, must come before the builder.Build() line
+builder.Services.AddHttpContextAccessor();  
+builder.Services.AddSession();  
 
 var app = builder.Build();
 
@@ -10,11 +13,11 @@ if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
 }
+
 app.UseStaticFiles();
-
 app.UseRouting();
-
 app.UseAuthorization();
+app.UseSession(); 
 
 app.MapControllerRoute(
     name: "default",

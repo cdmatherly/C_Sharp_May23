@@ -1,8 +1,6 @@
-@model Pet
-
 <div>
-    <h2>@Model.Name</h2>
-    <h2>@Model.Type</h2>
-    <p>@Model.Age</p>
-    <p>@Model.Color</p>
+    <h2>Name: @Context.Session.GetString("PetName")</h2>
+    <h2>Type: @Context.Session.GetString("PetType")</h2>
+    <p>Age: @Context.Session.GetInt32("PetAge")</p>
+    <p>Color: @Context.Session.GetString("PetColor")</p>
 </div>
