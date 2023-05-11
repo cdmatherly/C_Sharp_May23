@@ -92,22 +92,22 @@ class BinarySearchTree {
         let current = this.root;
 
         while (true) {
-        if (newVal <= current.data) {
-            if (current.left === null) {
-            current.left = node;
-            return this;
-            }
+            if (newVal <= current.data) {
+                if (current.left === null) {
+                    current.left = node;
+                    return this;
+                }
 
-            current = current.left;
-        } else {
-            // newVal is greater than current.data
-            if (current.right === null) {
-            current.right = node;
-            return this;
-            }
+                current = current.left;
+            } else {
+                // newVal is greater than current.data
+                if (current.right === null) {
+                    current.right = node;
+                    return this;
+                }
 
-            current = current.right;
-        }
+                current = current.right;
+            }
         }
     }
 
@@ -124,21 +124,21 @@ class BinarySearchTree {
      */
     insertRecursive(newVal, curr = this.root) {
         if (this.isEmpty()) {
-        this.root = new BSTNode(newVal);
-        return this;
+            this.root = new BSTNode(newVal);
+            return this;
         }
 
         if (newVal > curr.data) {
-        if (curr.right === null) {
-            curr.right = new BSTNode(newVal);
-            return this;
-        }
-        return this.insertRecursive(newVal, curr.right);
+            if (curr.right === null) {
+                curr.right = new BSTNode(newVal);
+                return this;
+            }
+            return this.insertRecursive(newVal, curr.right);
         }
 
         if (curr.left === null) {
-        curr.left = new BSTNode(newVal);
-        return this;
+            curr.left = new BSTNode(newVal);
+            return this;
         }
         return this.insertRecursive(newVal, curr.left);
     }
