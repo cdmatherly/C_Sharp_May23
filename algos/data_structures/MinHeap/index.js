@@ -71,8 +71,6 @@ class MinHeap {
         return this.heap.length - 1;
     }
 
-
-
     /**
      * Retrieves the top (minimum number) in the heap without removing it.
      * - Time: O(1) constant.
@@ -82,17 +80,6 @@ class MinHeap {
     top() {
         return this.heap.length > 1 ? this.heap[1] : null;
     }
-
-    /**
-     * Inserts a new number into the heap and maintains the heaps order.
-     * 1. Push new num to back then.
-     * 2. Iteratively swap the new num with it's parent while it is smaller than
-     *    it's parent.
-     * - Time: O(log n) logarithmic due to shiftUp / iterative swapping.
-     * - Space: O(1) constant.
-     * @param {number} num The num to add.
-     */
-    insert(num) { }
 
     /**
      * Inserts a new number into the heap and reorders heap to maintain order.
