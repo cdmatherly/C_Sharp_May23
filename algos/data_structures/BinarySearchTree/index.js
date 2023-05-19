@@ -55,7 +55,13 @@ class BinarySearchTree {
      * @param {Node} node The current node during the traversal of this tree.
      * @returns {number} The total number of nodes.
      */
-    size(node = this.root) { }
+    size(node = this.root) {
+        if(!node) {
+            return 0
+        }
+
+        return 1 + this.size(node.left) + this.size(node.right);
+    }
 
     /**
      * Calculates the height of the tree which is based on how many nodes from
