@@ -42,14 +42,12 @@ class SinglyLinkedList {
   }
 
     /**
-   * Reverses this list in-place without using any extra lists.
-   * - Time: (?).
-   * - Space: (?).
-   * @returns {SinglyLinkedList} This list.
-   */
-    reverse() {
-      m
-    }
+     * Reverses this list in-place without using any extra lists.
+     * - Time: (?).
+     * - Space: (?).
+     * @returns {SinglyLinkedList} This list.
+     */
+    reverse() { }
 
     /**
      * Determines whether the list has a loop in it which would result in

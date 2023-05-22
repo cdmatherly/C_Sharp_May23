@@ -3,14 +3,6 @@ TODO: Create the DLLNode class and implement the DoublyLinkedList constructor
 and the empty methods below the constructor.
 */
 
-class ListNode {
-    constructor(data){
-        this.data = data;
-        this.next = null;
-        this.prev = null;
-    }
-}
-
 /**
  * A class to represent a doubly linked list and contain all of it's methods.
  * A doubly linked list is a singly linked list that can be traversed in both
@@ -21,10 +13,9 @@ class DoublyLinkedList {
 	 * Executed when the new keyword is used to construct a new DoublyLInkedList
 	 * instance that inherits these methods and properties.
 	 */
-    constructor() {
-        this.head = null;
-        this.tail = null;
-}
+	constructor() {
+		// TODO: implement the constructor.
+	}
 
 	/**
 	 * Creates a new node and adds it at the front of this list.
@@ -92,6 +83,22 @@ class DoublyLinkedList {
 }
 
 const emptyList = new DoublyLinkedList();
+
+/**************** Uncomment these test lists after insertAtBack is created. ****************/
+// const singleNodeList = new DoublyLinkedList().insertAtBack(1);
+// const biNodeList = new DoublyLinkedList().insertAtBack(1).insertAtBack(2);
+// const firstThreeList = new DoublyLinkedList().insertAtBackMany([1, 2, 3]);
+// const secondThreeList = new DoublyLinkedList().insertAtBackMany([4, 5, 6]);
+// const unorderedList = new DoublyLinkedList().insertAtBackMany([
+//   -5,
+//   -10,
+//   4,
+//   -3,
+//   6,
+//   1,
+//   -7,
+//   -2,
+// ]);
 
 /**************** Uncomment these test lists after insertAtBack is created. ****************/
 // const singleNodeList = new DoublyLinkedList().insertAtBack(1);

@@ -28,20 +28,7 @@ class MinHeap {
      * - Space: O(1) constant.
      * @returns {?number} The min number or null if empty.
      */
-    extract() {
-        if (this.heap.length == 1){
-            return null;
-        }
-        this.swap(1, this.heap.length - 1);
-        let result = this.heap.pop();
-        let i = 1;
-        while (this.heap[i] > this.heap[i * 2] || this.heap[i] > this.heap[i * 2 + 1]){
-            let j = this.heap[i * 2] < this.heap[i * 2 + 1] ? i * 2 : i * 2 + 1;
-            this.swap(i, j);
-            i = j;
-        }
-        return result
-    }
+    extract() { }
 
     /**
      * @param {number} i
@@ -83,8 +70,6 @@ class MinHeap {
         // - 1 since 0 index is unused
         return this.heap.length - 1;
     }
-
-
 
     /**
      * Retrieves the top (minimum number) in the heap without removing it.
