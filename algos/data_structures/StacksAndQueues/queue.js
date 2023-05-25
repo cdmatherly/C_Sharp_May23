@@ -1,3 +1,5 @@
+import Stack from './stack'
+
 /**
  * Class to represent a queue using an array to store the queued items.
  * Follows a FIFO (First In First Out) order where new items are added to the
@@ -15,7 +17,10 @@ class Queue {
 	 * @param {any} item The new item to add to the back.
 	 * @returns {number} The new size of this queue.
 	 */
-	enqueue(item) {}
+	enqueue(item) {
+		this.items = [...this.items,item]
+		return this.items.length
+	}
 
 	/**
 	 * Removes and returns the first item of this queue.
@@ -24,7 +29,11 @@ class Queue {
 	 * - Space: O(1) constant.
 	 * @returns {any} The first item or undefined if empty.
 	 */
-	dequeue() {}
+	dequeue() {
+		const firstItem = this.items[0]
+		this.items = this.items.slice(1)
+		return firstItem
+	}
 
 	/**
 	 * Retrieves the first item without removing it.
@@ -32,7 +41,9 @@ class Queue {
 	 * - Space: O(1) constant.
 	 * @returns {any} The first item or undefined if empty.
 	 */
-	front() {}
+	front() {
+		return this.items[0]
+	}
 
 	/**
 	 * Returns whether or not this queue is empty.
@@ -40,7 +51,9 @@ class Queue {
 	 * - Space: O(1) constant.
 	 * @returns {boolean}
 	 */
-	isEmpty() {}
+	isEmpty() {
+		return this.items.length === 0
+	}
 
 	/**
 	 * Retrieves the size of this queue.
@@ -48,7 +61,65 @@ class Queue {
 	 * - Space: O(1) constant.
 	 * @returns {number} The length.
 	 */
-	size() {}
+	size() {
+		return this.items.length
+	}
 }
 
 /* Rebuild the above class using a linked list instead of an array. */
+
+class QueueNode {
+    constructor(data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+class LinkedListQueue {
+    constructor() {
+        this.head = null;
+        this.count = 0;
+    }
+
+	isEmpty(){
+		return this.head === null
+	}
+
+	enqueue(item){
+		const newNode = new QueueNode(item)
+		if(this.isEmpty()){
+			this.head = newNode
+			this.count = 1
+		} else {
+			const runner = this.head
+			while(runner.next != null){
+				runner = runner.next
+			}
+			runner.next = newNode
+			this.count++
+		}
+		return this.count
+	}
+
+	dequeue(){
+		if (this.isEmpty()){
+			return undefined
+		} else {
+			const firstItem = this.head
+			this.head = this.head.next
+			return firstItem
+		}
+	}
+
+	front(){
+		if (this.isEmpty()){
+			return undefined
+		} else {
+			return this.head
+		}
+	}
+
+	size(){
+		return this.count
+	}
+}
